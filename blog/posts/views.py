@@ -6,17 +6,19 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 from django.urls import reverse
 
+from django.views import generic
+
 from .services import posts, comments
 
 from .forms import CommentCreateForm
 
 
-def index(request):
-    posts_list = posts.get_posts_list()
+class IndexView(generic.ListView):
+    template_name = 'index.twig'
+    context_object_name = 'posts_list'
 
-    return render(request, 'index.twig', {
-        'posts_list': posts_list
-    })
+    def get_queryset(self):
+        return posts.get_posts_list()
 
 
 def post_page(request, post_id):
