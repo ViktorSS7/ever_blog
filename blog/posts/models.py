@@ -1,4 +1,8 @@
+import datetime
+
 from django.db import models
+
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -9,6 +13,10 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.date_added <= now
 
 
 class Comment(models.Model):
