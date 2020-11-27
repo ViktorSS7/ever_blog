@@ -1,0 +1,20 @@
+    <div>
+        <h2>Comments block</h2>
+        {% if comments_list %}
+            {% for comment in comments_list %}
+            <div>
+                <strong>{{ comment.author_name }}</strong>
+                <span>{{ comment.date_added }}</span>
+                <div>
+                    {{ comment.body }}
+                </div>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+        <form action="{% url 'comment_create' post_id=post_id %}" method="POST">
+            {% csrf_token %}
+            {{ comment_form }}
+            <input type="submit" value="Send">
+        </form>
+    </div>
