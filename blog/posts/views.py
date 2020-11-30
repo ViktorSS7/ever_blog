@@ -14,7 +14,7 @@ from .forms import CommentCreateForm
 
 
 class IndexView(generic.ListView):
-    template_name = 'index.twig'
+    template_name = 'posts/post_list.twig'
     context_object_name = 'posts_list'
 
     def get_queryset(self):
@@ -26,13 +26,13 @@ def post_page(request, post_id):
 
     comment_form = CommentCreateForm()
     comments_list = comments.get_comments_list_by_post_id(post_id)
-    comments_output = loader.get_template('comments.twig').render({
+    comments_output = loader.get_template('comments/comments.twig').render({
         'comments_list': comments_list,
         'post_id': post_id,
         'comment_form': comment_form
     }, request)
 
-    return render(request, 'post.twig', {
+    return render(request, 'posts/post.twig', {
         'post': post,
         'comments_list': comments_output
     })

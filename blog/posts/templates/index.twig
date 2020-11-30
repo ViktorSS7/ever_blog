@@ -1,7 +1,27 @@
-{% if posts_list %}
-    {% for post in posts_list %}
-        <li>
-            <a href="{% url 'post_page' post_id=post.id %}" class="">{{ post.title }}</a>
-        </li>
-    {% endfor %}
-{% endif %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+</head>
+<body>
+<div id="container">
+    <header>
+        <div class="row">
+            <ul class="header-navbar">
+                <li>
+                    <a href="{% url 'posts' %}">Home page</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

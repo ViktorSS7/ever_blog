@@ -1,0 +1,14 @@
+{% extends 'index.twig' %}
+{% block title %} Posts list {% endblock %}
+
+{% block content %}
+    {% if posts_list %}
+        <ul>
+            {% for post in posts_list %}
+                <li>
+                    <a href="{% url 'post_page' post_id=post.id %}" class="">{{ post.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

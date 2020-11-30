@@ -1,0 +1,16 @@
+{% extends 'index.twig' %}
+
+{% block title %} {{  post.title }} {% endblock %}
+
+{% block content %}
+    {% if post %}
+        <h1>{{ post.title }}</h1>
+        <span>{{ post.date_added }}</span>
+        <div>
+            {{ post.body }}
+        </div>
+        <div>
+            {{ comments_list }}
+        </div>
+    {% endif %}
+{% endblock %}

@@ -1,8 +1,8 @@
-    <div>
+    <div class="comments-block">
         <h2>Comments block</h2>
         {% if comments_list %}
             {% for comment in comments_list %}
-            <div>
+            <div class="comment-item">
                 <strong>{{ comment.author_name }}</strong>
                 <span>{{ comment.date_added }}</span>
                 <div>

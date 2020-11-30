@@ -1,0 +1,71 @@
+form * {
+    display: block;
+}
+
+#container {
+    width: 80%;
+    margin: auto;
+}
+
+/* === FONTS === */
+h1, h2, h3, h4, p, strong, div {
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, p, span, div {
+    color: #3b3b3b;
+}
+
+span {
+    font-size: 13px;
+    color: #4a4a4a;
+    font-family: monospace;
+    display: block;
+}
+
+/* === LISTS === */
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+ul li {
+    background: #78777796;
+    width: 20%;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+
+    border-radius: 10px;
+}
+
+ul li a {
+    font-size: 20px;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+
+ul li a:visited {
+    color: #3b3b3b;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* === COMMENTS === */
+div.comment-item {
+    margin: 10px;
+}
+
+/* === HEADER NAVBAR === */
+
+ul.header-navbar {
+    justify-content: flex-start;
+}
+
+ul.header-navbar li {
+    width: 15%;
+}
+
