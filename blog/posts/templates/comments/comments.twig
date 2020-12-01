@@ -4,6 +4,9 @@
             {% for comment in comments_list %}
             <div class="comment-item">
                 <strong>{{ comment.user.username }}</strong>
+                {% if comment.user.id == user.id %}
+                    <a href="{% url 'comment_delete' comment_id=comment.id %}">Delete</a>
+                {% endif %}
                 <span>{{ comment.date_added }}</span>
                 <div>
                     {{ comment.body }}

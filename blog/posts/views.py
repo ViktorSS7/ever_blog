@@ -46,3 +46,14 @@ def comment_create(request, post_id):
             comments.add_comment_to_post(post_id, request.user, form.cleaned_data['comment'])
 
     return HttpResponseRedirect(reverse('post_page', args=[post_id]))
+
+
+def comment_delete(request, comment_id):
+    comment = comments.get_comment_by_id(comment_id)
+
+    if comment.user.id == request.user.id:
+        comments.delete_comment(comment_id)
+
+    return HttpResponseRedirect(reverse('post_page', args=[
+        comment.post_id
+    ]))
