@@ -43,6 +43,6 @@ def comment_create(request, post_id):
         form = CommentCreateForm(request.POST)
 
         if form.is_valid():
-            comments.add_comment_to_post(post_id, form.cleaned_data['your_name'], form.cleaned_data['comment'])
+            comments.add_comment_to_post(post_id, request.user, form.cleaned_data['comment'])
 
     return HttpResponseRedirect(reverse('post_page', args=[post_id]))

@@ -3,7 +3,7 @@
         {% if comments_list %}
             {% for comment in comments_list %}
             <div class="comment-item">
-                <strong>{{ comment.author_name }}</strong>
+                <strong>{{ comment.user.username }}</strong>
                 <span>{{ comment.date_added }}</span>
                 <div>
                     {{ comment.body }}
